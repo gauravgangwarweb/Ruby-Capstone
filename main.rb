@@ -1,3 +1,7 @@
+require_relative 'app'
+
+app = App.new
+
 def menu(app)
   puts "\nWelcome to our Catalog!"
   puts "\nPlease choose a task by entering a number:"
@@ -86,3 +90,5 @@ def exit_app(app)
   app.save_files
   exit
 end
+
+menu(app)
