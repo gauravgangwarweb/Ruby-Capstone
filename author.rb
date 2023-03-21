@@ -12,5 +12,4 @@ class Author < Item
     @last_name = last_name
     @items = []
   end
-
 end
