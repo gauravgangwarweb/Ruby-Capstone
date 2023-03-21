@@ -13,4 +13,14 @@ class Game < Item
     @publish_date = publish_date
     @archived = can_be_archived?
   end
+
+  private
+
+  def can_be_archived?
+    @archived = if super || Date.today - Date.parse(@last_played_at) > 365 * 2
+                  true
+                else
+                  false
+                end
+  end
 end
