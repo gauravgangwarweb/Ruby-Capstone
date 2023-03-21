@@ -12,4 +12,9 @@ class Author < Item
     @last_name = last_name
     @items = []
   end
+
+  def add_item(item)
+    (item.is_a?(Item) && @items.include?(item)) || (@items << item)
+    item.add_author(self)
+  end
 end
