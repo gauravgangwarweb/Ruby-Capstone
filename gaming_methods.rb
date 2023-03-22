@@ -6,7 +6,9 @@ def show_games
     puts 'This list is empty at the moment'
   else
     @game_list.each_with_index do |game, index|
-      puts "(#{index}) ID: #{game.id} Multiplayer: \"#{game.multiplayer}\", Last Played: #{game.last_played_at}, Published Year: #{game.publish_date} Archived: #{game.archived}" # rubocop:disable Layout/LineLength
+      puts "(#{index}) ID: #{game.id} Multiplayer: \"#{game.multiplayer}\",
+       Last Played: #{game.last_played_at},
+        Published Year: #{game.publish_date} Archived: #{game.archived}"
     end
   end
 end
