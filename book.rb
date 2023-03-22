@@ -2,7 +2,6 @@ require_relative 'item'
 require_relative 'app'
 require_relative 'json'
 
-
 class Book < Item
   attr_accessor :publisher, :cover_state
   attr_reader :id
