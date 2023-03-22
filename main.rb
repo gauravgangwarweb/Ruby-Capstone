@@ -22,7 +22,7 @@ end
 def for_listing(app)
   puts "\nWelcome to our Catalog!"
   puts "\nPlease select a number for listing items"
-  puts " 1 - List all books\n 2 - List all music albums\n 3 - List all games\n 4 - For next menu\n 5 - Back to main\n 6 - Exit App" # rubocop:disable Layout/LineLength
+  puts " 1 - List all books\n 2 - List all music albums\n 3 - List all games\n 4 - For next menu\n 5 - Back to main\n 6 - Exit App"
   choice = gets.chomp
   case choice
   when '1'
@@ -45,7 +45,7 @@ end
 def display_next(app)
   puts "\nWelcome to our Catalog!"
   puts "\nPlease select a number for listing items"
-  puts " 1 - List all authors\n 2 - List all labels\n 3 - List all genres\n 4 - For previous menu\n 5 - Back to main\n 6 - Exit App" # rubocop:disable Layout/LineLength
+  puts " 1 - List all authors\n 2 - List all labels\n 3 - List all genres\n 4 - For previous menu\n 5 - Back to main\n 6 - Exit App"
   choice = gets.chomp
   case choice
   when '1'
