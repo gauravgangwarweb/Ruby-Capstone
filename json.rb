@@ -10,4 +10,6 @@ def create_files
   FileUtils.touch('./storage/label.json')
   FileUtils.touch('./storage/music_albums.json')
   FileUtils.touch('./storage/genre.json')
+  FileUtils.touch('./storage/game.json')
+  FileUtils.touch('./storage/author.json')
 end
