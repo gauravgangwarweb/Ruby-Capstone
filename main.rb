@@ -84,7 +84,7 @@ def for_adding(app)
   end
 end
 
-def exit_app(app)
+def exit_app(_app)
   puts 'Thank you for using this app!'
   exit
 end

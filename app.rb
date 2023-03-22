@@ -72,7 +72,7 @@ class App
   def read_files
     instance_variables.each do |var|
       file_name = var.to_s.chomp('_list').delete('@')
-      if File.exist?("./storage/#{file_name}.json") && File.read("./storage/#{file_name}.json") != ''
+      if File.exist?("./storage/#{file_name}.json") && !File.empty?("./storage/#{file_name}.json")
         ary = JSON.parse(File.read("./storage/#{file_name}.json"))
         case file_name
         when 'music'
@@ -91,7 +91,7 @@ class App
   def read_files2
     instance_variables.each do |var|
       file_name = var.to_s.chomp('_list').delete('@')
-      if File.exist?("./storage/#{file_name}.json") && File.read("./storage/#{file_name}.json") != ''
+      if File.exist?("./storage/#{file_name}.json") && !File.empty?("./storage/#{file_name}.json")
         ary = JSON.parse(File.read("./storage/#{file_name}.json"))
         case file_name
         when 'genre'
