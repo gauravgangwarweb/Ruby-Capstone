@@ -29,7 +29,7 @@
 # 📖 OUR CATALOG <a name="about-project"></a>
 
 
-**Catalog of Our Things** is an app that keeps a record of various items from Books, to Music and Games.
+**Catalog of Our Things** is an app that keeps a record of various items from books, to busic and games. It is a [Microverse](https://www.microverse.org/) group capstone project.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -65,7 +65,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd school-library
-  git clone git@github.com:kaizipaul/ruby-capstone-project.git
+  git clone git@github.com:gauravgangwarweb/Ruby-Capstone.git
 ```
 
 ### Install
