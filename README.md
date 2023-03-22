@@ -29,21 +29,16 @@
 # 📖 OUR CATALOG <a name="about-project"></a>
 
 
-**Catalog of Our Things** is an app that keeps a record of various items from books, to busic and games. It is a [Microverse](https://www.microverse.org/) group capstone project.
+**Catalog of Our Things** is an app that keeps a record of various items from books, to busic and games. It is a [Microverse](https://www.microverse.org/) Ruby group capstone project.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-  </ul>
-</details>
+- [Ruby](https://www.ruby-lang.org/en/)
+- [RSpec](https://rspec.info/)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
-
 
 <!-- GETTING STARTED -->
 
@@ -55,30 +50,36 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-```sh
- gem install rails
-```
+Ruby. How to install? Read this [documentation](https://www.ruby-lang.org/en/documentation/installation/).
 
 ### Setup
 
 Clone this repository to your desired folder:
 
 ```sh
-  cd school-library
-  git clone git@github.com:gauravgangwarweb/Ruby-Capstone.git
+  run git clone git@github.com:gauravgangwarweb/Ruby-Capstone.git
 ```
 
-### Install
-
-Install this project with:
+### Install RSpec
 
 ```sh
-  gem install
+  run gem install rspec
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  rspec ../spec/[file]_spec.rb
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 ```
 
 ### Usage
 
-To run the project, execute the following command:
+To run the main project, execute the following command:
 
 Example command:
 
@@ -152,6 +153,6 @@ If you like this project...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
