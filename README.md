@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Catalog of Our Things</b></h3>
+  <h1><b>Catalog of Our Things</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
