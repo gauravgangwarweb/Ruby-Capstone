@@ -86,8 +86,6 @@ end
 
 def exit_app(app)
   puts 'Thank you for using this app!'
-  create_dir
-  app.save_files
   exit
 end
 

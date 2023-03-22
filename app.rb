@@ -1,15 +1,20 @@
 require 'json'
+require_relative 'book'
 
 class App
-  attr_accessor :album_list, :genre_list
+  attr_accessor :album_list, :genre_list, :game_list, :author_list
 
   def initialize()
     @music_list = []
     @genre_list = []
+    @game_list = []
+    @author_list = []
+    @book_list = []
+    @label_list = []
   end
 
   def music_display
-    list_album
+    list_music
   end
 
   def genre_display
@@ -17,7 +22,39 @@ class App
   end
 
   def music_create
-    create_album
+    create_music
+  end
+
+  def game_display
+    show_games
+  end
+
+  def game_create
+    create_game
+  end
+
+  def author_display
+    list_authors
+  end
+
+  def book_display
+    book_list
+  end
+
+  def label_display
+    label_list
+  end
+
+  def book_create
+    create_book
+  end
+
+  def add_label(thing)
+    print "Title of the #{thing}: "
+    title = gets.chomp
+    print "Color of the #{thing}: "
+    color = gets.chomp
+    Label.new(title, color)
   end
 
   def save_files
@@ -35,11 +72,15 @@ class App
   def read_files
     instance_variables.each do |var|
       file_name = var.to_s.chomp('_list').delete('@')
-      if File.exist?("./storage/#{file_name}.json") && !File.empty?("./storage/#{file_name}.json")
+      if File.exist?("./storage/#{file_name}.json") && File.read("./storage/#{file_name}.json") != ''
         ary = JSON.parse(File.read("./storage/#{file_name}.json"))
         case file_name
         when 'music'
           read_music(ary)
+        when 'game'
+          read_game(ary)
+        when 'label'
+          read_label(ary)
         end
       else
         File.write("./storage/#{file_name}.json", '[]')
@@ -50,11 +91,15 @@ class App
   def read_files2
     instance_variables.each do |var|
       file_name = var.to_s.chomp('_list').delete('@')
-      if File.exist?("./storage/#{file_name}.json") && !File.empty?("./storage/#{file_name}.json")
+      if File.exist?("./storage/#{file_name}.json") && File.read("./storage/#{file_name}.json") != ''
         ary = JSON.parse(File.read("./storage/#{file_name}.json"))
         case file_name
         when 'genre'
           read_genre(ary)
+        when 'author'
+          read_author(ary)
+        when 'book'
+          read_book(ary)
         end
       else
         File.write("./storage/#{file_name}.json", '[]')
@@ -64,21 +109,24 @@ class App
 
   def read_music(file)
     puts
-    puts 'MUSIC ALBUMS'
+    puts '=====================  MUSIC ALBUMS  ====================='
     puts
     file.each do |el|
       music_id = el['value']['id']
       music_archived = el['value']['archived']
       music_on_spotify = el['value']['on_spotify']
       music_publish_date = el['value']['publish_date']
-      puts "ID: #{music_id} On Spotify: #{music_on_spotify} Published on: #{music_publish_date}  Archived: #{music_archived}" # rubocop:disable Layout/LineLength
+      puts "ID: #{music_id}"
+      puts "On Spotify: #{music_on_spotify}"
+      puts "Published on: #{music_publish_date}"
+      puts "Archived: #{music_archived}"
       add_music(music_on_spotify, music_publish_date)
     end
   end
 
   def read_genre(file)
     puts
-    puts 'GENRES'
+    puts '=====================     GENRES     ====================='
     puts
     file.each do |el|
       genre_name = el['value']['name']
