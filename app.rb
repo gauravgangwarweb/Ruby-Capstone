@@ -1,6 +1,8 @@
+require_relative './musicalbum'
+require_relative './gaming_methods'
+require_relative './book_methods'
+require_relative './label'
 require 'json'
-require_relative 'book'
-require './musicalbum'
 
 class App
   attr_accessor :album_list, :genre_list, :game_list, :author_list

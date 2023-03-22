@@ -20,9 +20,11 @@ def create_game
   last_played_at = gets.chomp
   puts 'Please state when the game was published in this format - [yyyy/mm/dd]:'
   publish_date = gets.chomp
-  print 'WooHoo! Game has been added succesfully'
   new_game = Game.new(multiplayer, last_played_at, publish_date)
   @game_list << new_game
+  create_dir
+  save_files
+  print 'Game has been added succesfully'
 end
 
 def add_game(multiplayer, last_played_at, publish_date)
