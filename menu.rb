@@ -4,7 +4,7 @@ require_relative './json'
 def menu(app)
   puts "\nWelcome to our Catalog!"
   puts "\nPlease choose a task (1, 2, or 3):"
-  puts " 1 - List items\n 2 - Add items\n 3 - Exit App"
+  puts " 1 - List items\n 2 - Add items\n 3 - Exit app"
   choice = gets.chomp
   case choice
   when '1'
@@ -44,7 +44,7 @@ end
 def display_next(app)
   puts "\nWelcome to our Catalog!"
   puts "\nPlease select a number for listing items"
-  puts " 1 - List all authors\n 2 - List all labels\n 3 - List all genres\n 4 - For previous menu\n 5 - Back to main\n 6 - Exit App"
+  puts " 1 - List all authors\n 2 - List all labels\n 3 - List all genres\n 4 - Previous menu\n 5 - Main menu\n 6 - Exit app"
   choice = gets.chomp
   case choice
   when '1'
