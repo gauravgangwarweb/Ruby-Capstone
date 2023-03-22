@@ -1,7 +1,11 @@
-require './app'
-require './item'
+require_relative './app'
+require_relative './item'
+require 'date'
 
 class MusicAlbum < Item
+  attr_accessor :on_spotify, :archived, :publish_date
+  attr_reader :id
+
   def initialize(on_spotify, publish_date)
     super(id = Random.rand(1..100))
     @id = id
@@ -15,24 +19,6 @@ class MusicAlbum < Item
   def can_be_archived?
     super || @on_spotify ? true : false
   end
-
-  attr_accessor :on_spotify, :publish_date
-  attr_reader :id
-end
-
-def create_music
-  puts 'Is it on spotify? [y/n]: '
-  on_spotify = gets.chomp
-  puts 'Please state when was the music published [yyyy/mm/dd]:'
-  publish_date = gets.chomp
-  print 'Music Album Added Succesfully'
-  new_music = MusicAlbum.new(on_spotify, publish_date)
-  @music_list.push(new_music)
-end
-
-def add_music(on_spotify, publish_date)
-  new_music = MusicAlbum.new(on_spotify, publish_date)
-  @music_list << new_music
 end
 
 def list_music
@@ -40,7 +26,29 @@ def list_music
     puts 'Music list is empty'
   else
     @music_list.each_with_index do |music, index|
-      puts "(#{index}) ID: #{music.id} On Spotify: \"#{music.on_spotify}\", Publish Date: #{music.publish_date} Archived: #{music.archived}"
+      puts
+      puts "(#{index})"
+      puts "ID: #{music.id}"
+      puts "On Spotify: #{music.on_spotify}"
+      puts "Publish Date: #{music.publish_date}"
+      puts "Archived: #{music.archived}"
     end
   end
+end
+
+def create_music
+  puts 'Is it on spotify? [y/n]: '
+  on_spotify = gets.chomp
+  puts 'Please state when was the music published [dd/mm/yyyy]:'
+  publish_date = gets.chomp
+  new_music = MusicAlbum.new(on_spotify, publish_date)
+  @music_list.push(new_music)
+  create_dir
+  save_files
+  print 'Music Album Added Succesfully'
+end
+
+def add_music(on_spotify, publish_date)
+  new_music = MusicAlbum.new(on_spotify, publish_date)
+  @music_list << new_music
 end
