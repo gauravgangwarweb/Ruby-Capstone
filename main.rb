@@ -74,7 +74,7 @@ def for_adding(app)
   when '1'
     app.book_create
   when '2'
-    app.album_create
+    app.music_create
   when '3'
     app.game_create
   when '4'
