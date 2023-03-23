@@ -39,15 +39,16 @@ end
 def create_music
   puts 'Is it on spotify? [Y/N]: '
   on_spotify = gets.chomp.split.map(&:capitalize).join(' ')
-  
+
   publish_date = ''
   loop do
     puts 'Please state when was the music published [dd/mm/yyyy]:'
     publish_date = gets.chomp
     break if publish_date =~ %r{^\d{2}/\d{2}/\d{4}$}
+
     puts 'Invalid date format. Please enter date in dd/mm/yyyy format.'
   end
-  
+
   new_music = MusicAlbum.new(on_spotify, publish_date)
   @music_list.push(new_music)
   create_dir
@@ -59,4 +60,3 @@ def add_music(on_spotify, publish_date)
   new_music = MusicAlbum.new(on_spotify, publish_date)
   @music_list << new_music
 end
-

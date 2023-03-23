@@ -14,33 +14,46 @@ def show_games
 end
 
 def create_game
-  print 'Multiplayer [Y/N]: '
-  multiplayer = gets.chomp.capitalize
-  print 'Last played at [dd/mm/yyyy]: '
-  last_played_at = gets.chomp
-
-  # Validate last_played_at format
-  while !last_played_at.match?(/^\d{2}\/\d{2}\/\d{4}$/)
-    puts "Invalid date format. Please enter date in dd/mm/yyyy format."
-    print 'Last played at [dd/mm/yyyy]: '
-    last_played_at = gets.chomp
-  end
-  
-  print 'Please state when the game was published in this format - [dd/mm/yyyy]: '
-  publish_date = gets.chomp
-
-  # Validate publish_date format
-  while !publish_date.match?(/^\d{2}\/\d{2}\/\d{4}$/)
-    puts "Invalid date format. Please enter date in dd/mm/yyyy format."
-    print 'Please state when the game was published in this format - [dd/mm/yyyy]: '
-    publish_date = gets.chomp
-  end
+  multiplayer = getmultiplayer
+  last_played_at = getlast_played_at
+  publish_date = getpublish_date
 
   new_game = Game.new(multiplayer, last_played_at, publish_date)
   @game_list << new_game
   create_dir
   save_files
   puts 'Game has been added successfully'
+end
+
+def getmultiplayer
+  print 'Multiplayer [Y/N]: '
+  gets.chomp.capitalize
+end
+
+def getlast_played_at
+  print 'Last played at [dd/mm/yyyy]: '
+  last_played_at = gets.chomp
+
+  until last_played_at.match?(%r{^\d{2}/\d{2}/\d{4}$}) # Validate last_played_at format
+    puts 'Invalid date format. Please enter date in dd/mm/yyyy format.'
+    print 'Last played at [dd/mm/yyyy]: '
+    last_played_at = gets.chomp
+  end
+
+  last_played_at
+end
+
+def getpublish_date
+  print 'Please state when the game was published in this format - [dd/mm/yyyy]: '
+  publish_date = gets.chomp
+
+  until publish_date.match?(%r{^\d{2}/\d{2}/\d{4}$}) # Validate publish_date format
+    puts 'Invalid date format. Please enter date in dd/mm/yyyy format.'
+    print 'Please state when the game was published in this format - [dd/mm/yyyy]: '
+    publish_date = gets.chomp
+  end
+
+  publish_date
 end
 
 def add_game(multiplayer, last_played_at, publish_date)

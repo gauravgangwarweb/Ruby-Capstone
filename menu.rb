@@ -2,8 +2,7 @@ require_relative 'musicalbum'
 require_relative 'json'
 
 def menu(app)
-  puts
-  puts "\nWelcome to our Catalog!"
+  puts "\n\nWelcome to our Catalog!"
   puts "\nPlease choose a task (1, 2, or 3):"
   puts " 1 - List items\n 2 - Add items\n 3 - Exit app"
   choice = gets.chomp
@@ -20,8 +19,7 @@ def menu(app)
 end
 
 def for_listing(app)
-  puts
-  puts "\nWelcome to our Catalog!"
+  puts "\n\nWelcome to our Catalog!"
   puts "\nPlease select a number option"
   puts " 1 - List all books\n 2 - List all music albums\n 3 - List all games\n 4 - Next menu\n 5 - Back to main menu\n 6 - Exit App"
   choice = gets.chomp
@@ -44,8 +42,7 @@ def for_listing(app)
 end
 
 def display_next(app)
-  puts
-  puts "\nWelcome to our Catalog!"
+  puts "\n\nWelcome to our Catalog!"
   puts "\nPlease select a number for listing items"
   puts " 1 - List all authors\n 2 - List all labels\n 3 - List all genres\n 4 - Previous menu\n 5 - Main menu\n 6 - Exit app"
   choice = gets.chomp
@@ -68,8 +65,7 @@ def display_next(app)
 end
 
 def for_adding(app)
-  puts
-  puts "\nWelcome to our Catalog!"
+  puts "\n\nWelcome to our Catalog!"
   puts "\nPlease select a number for adding items"
   puts " 1 - Add a book\n 2 - Add a music album\n 3 - Add a game\n 4 - Back to main\n 5 - Exit App"
   choice = gets.chomp
