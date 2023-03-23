@@ -46,7 +46,13 @@ class App
   end
 
   def label_display
-    @label_list
+    if @label_list.empty?
+      puts 'There are no labels in the catalog'
+    else
+      @label_list.each do |label|
+        puts label.title
+      end
+    end
   end
 
   def book_create
