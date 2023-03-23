@@ -1,5 +1,5 @@
-require_relative './book'
-require_relative './app'
+require_relative 'book'
+require_relative 'app'
 
 def book_list
   if @book_list.empty?
@@ -15,9 +15,9 @@ end
 
 def create_book
   print 'What\'s the state of the Book Cover? [good/bad]: '
-  cover_state = gets.chomp.downcase
+  cover_state = gets.chomp.split.map(&:capitalize).join(' ')
   print 'Insert Book Publisher? '
-  publisher = gets.chomp
+  publisher = gets.chomp.split.map(&:capitalize).join(' ')
   new_book = Book.new(publisher, cover_state)
   @book_list.push(new_book)
   create_dir

@@ -1,7 +1,8 @@
-require_relative './musicalbum'
-require_relative './gaming_methods'
-require_relative './book_methods'
-require_relative './label'
+require_relative 'musicalbum'
+require_relative 'game_methods'
+require_relative 'book_methods'
+require_relative 'label'
+require_relative 'musicalbum_data'
 require 'json'
 
 class App
@@ -45,7 +46,7 @@ class App
   end
 
   def label_display
-    label_list
+    @label_list
   end
 
   def book_create
@@ -54,9 +55,9 @@ class App
 
   def add_label(thing)
     print "Title of the #{thing}: "
-    title = gets.chomp
+    title = gets.chomp.split.map(&:capitalize).join(' ')
     print "Color of the #{thing}: "
-    color = gets.chomp
+    color = gets.chomp.split.map(&:capitalize).join(' ')
     Label.new(title, color)
   end
 
@@ -107,33 +108,6 @@ class App
       else
         File.write("./storage/#{file_name}.json", '[]')
       end
-    end
-  end
-
-  def read_music(file)
-    puts
-    puts '=====================  MUSIC ALBUMS  ====================='
-    puts
-    file.each do |el|
-      music_id = el['value']['id']
-      music_archived = el['value']['archived']
-      music_on_spotify = el['value']['on_spotify']
-      music_publish_date = el['value']['publish_date']
-      puts "ID: #{music_id}"
-      puts "On Spotify: #{music_on_spotify}"
-      puts "Published on: #{music_publish_date}"
-      puts "Archived: #{music_archived}"
-      add_music(music_on_spotify, music_publish_date)
-    end
-  end
-
-  def read_genre(file)
-    puts
-    puts '=====================     GENRES     ====================='
-    puts
-    file.each do |el|
-      genre_name = el['value']['name']
-      puts "Genre Name: #{genre_name}"
     end
   end
 

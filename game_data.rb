@@ -1,4 +1,4 @@
-require_relative './gaming_methods'
+require_relative 'game_methods'
 
 def read_game(file)
   puts

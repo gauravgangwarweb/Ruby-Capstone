@@ -1,4 +1,4 @@
-require_relative './book_methods'
+require_relative 'book_methods'
 
 def read_book(file)
   puts

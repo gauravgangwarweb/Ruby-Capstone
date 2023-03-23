@@ -1,5 +1,5 @@
 require 'date'
-require_relative './item'
+require_relative 'item'
 
 class Author < Item
   attr_accessor :first_name, :last_name

@@ -1,5 +1,5 @@
-require_relative './musicalbum'
-require_relative './json'
+require_relative 'musicalbum'
+require_relative 'json'
 
 def menu(app)
   puts "\nWelcome to our Catalog!"
