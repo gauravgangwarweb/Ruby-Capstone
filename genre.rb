@@ -1,4 +1,4 @@
-require 'item'
+require './item'
 require 'date'
 
 class Genre < Item
