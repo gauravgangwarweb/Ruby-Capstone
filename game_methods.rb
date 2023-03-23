@@ -15,25 +15,32 @@ end
 
 def create_game
   print 'Multiplayer [Y/N]: '
-  multiplayer = gets.chomp.split.map(&:capitalize).join(' ')
+  multiplayer = gets.chomp.capitalize
   print 'Last played at [dd/mm/yyyy]: '
   last_played_at = gets.chomp
-  if last_played_at =~ /^\d{2}\/\d{2}\/\d{4}$/
-  puts 'Please state when the game was published in this format - [dd/mm/yyyy]:'
-  else
+
+  # Validate last_played_at format
+  while !last_played_at.match?(/^\d{2}\/\d{2}\/\d{4}$/)
     puts "Invalid date format. Please enter date in dd/mm/yyyy format."
+    print 'Last played at [dd/mm/yyyy]: '
+    last_played_at = gets.chomp
   end
   
+  print 'Please state when the game was published in this format - [dd/mm/yyyy]: '
   publish_date = gets.chomp
-  if publish_date =~ /^\d{2}\/\d{2}\/\d{4}$/
+
+  # Validate publish_date format
+  while !publish_date.match?(/^\d{2}\/\d{2}\/\d{4}$/)
+    puts "Invalid date format. Please enter date in dd/mm/yyyy format."
+    print 'Please state when the game was published in this format - [dd/mm/yyyy]: '
+    publish_date = gets.chomp
+  end
+
   new_game = Game.new(multiplayer, last_played_at, publish_date)
   @game_list << new_game
   create_dir
   save_files
-  print 'Game has been added succesfully'
-  else
-    puts "Invalid date format. Please enter date in dd/mm/yyyy format."
-  end
+  puts 'Game has been added successfully'
 end
 
 def add_game(multiplayer, last_played_at, publish_date)

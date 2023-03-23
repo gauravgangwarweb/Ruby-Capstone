@@ -22,7 +22,7 @@ def create_book
   @book_list.push(new_book)
   create_dir
   save_files
-  puts "\n The book has been created successfully!✅ "
+  puts "\n The book has been created successfully."
 end
 
 def add_book(publisher, cover_state)
